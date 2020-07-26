@@ -1,7 +1,11 @@
 const socket = io();
 let textarea = document.querySelector("#textarea");
 let messageArea = document.querySelector(".messageArea");
-let name = "You";
+
+setTimeout(() => {
+  document.querySelector(".hidden").classList.remove("hidden");
+  },500
+);
 
 textarea.addEventListener("keyup", (event) => {
   if(event.key === "Enter") {
@@ -11,7 +15,7 @@ textarea.addEventListener("keyup", (event) => {
 
 function sendMessage(message) {
   let msg = {
-    user: name,
+    user: "You",
     message: message.trim()
   }
   appendMessage(msg, "outgoing");
